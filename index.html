@@ -52,6 +52,9 @@
   text-align:center;background:#0A2B8F;border-radius:8px;
   padding:clamp(10px,1.4vh,16px) clamp(12px,1.4vw,20px);
   margin-bottom:clamp(8px,1.3vh,16px)}
+.modebtn{margin-left:8px;padding:5px 12px;border-radius:999px;background:var(--blue);color:#fff;
+  font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap}
+.modebtn:hover{background:var(--blue-d)}
 @media (max-width:760px){
   .grid3,.cards6,.qrgrid,.shots,.shotside{grid-template-columns:1fr;grid-template-rows:auto;overflow-y:auto}
 }
@@ -68,6 +71,7 @@
   <button class="navbtn" id="prevBtn" aria-label="上一页">&lsaquo;</button>
   <span class="pageno"><b id="curNo">01</b> / 29</span>
   <button class="navbtn" id="nextBtn" aria-label="下一页">&rsaquo;</button>
+  <a class="modebtn" id="toScript" href="script.html">看演讲稿</a>
 </div>
 <div class="hint" id="hint">&larr; &rarr; 翻页 · 空格继续 · 点击右侧圆点跳转</div>
 
@@ -103,5 +107,11 @@
   <section class="slide closing" id="s29"><div class="wm" aria-hidden="true">AI</div><div class="closing-grid"><div class="closing-left"><div class="eyebrow accent reveal" style="--i:0">写给每一个大一的你</div><h2 class="reveal" style="--i:1">先做一个小的</h2><p class="closing-lead reveal" style="--i:2">不必等一门学完，再碰下一门。这周写一页 spec.md，能演示就算开始了。</p><div class="closing-qa reveal" style="--i:3"><b>深圳的架构师同盟，也可以来</b><span>前面讲规约分层的人月聊 IT，也是同盟成员。公众号「人月聊IT」「腾讯云架构师技术同盟」有更多分享文章。聊技术、聊 AI 都行，散场也可以来找我。</span></div></div><div class="wecard reveal" style="--i:2"><h3>加我微信</h3><div class="sub">想加就加，交个朋友</div><img class="qrbox" src="qr.png" alt="微信二维码"><div class="weid">聊技术、聊 AI 都行</div><div class="wenote">也可以散场直接来找我</div></div></div><div class="footer"><span>Datawhale AI+X 高校行 · 分享</span><span>29 / 29</span></div></section>
 </main>
 <script src="app.js"></script>
+<script>
+document.getElementById("toScript").addEventListener("click", function () {
+  var n = parseInt(document.getElementById("curNo").textContent, 10) || 1;
+  this.href = "script.html#p" + n;
+});
+</script>
 </body>
 </html>
